@@ -12,8 +12,8 @@ local dlstatus = require('moonloader').download_status
 
 update_state = false
 
-local script_vers = 1
-local script_vers_text = '1.00'
+local script_vers = 2
+local script_vers_text = '1.01'
 
 local script_path = thisScript().path
 local script_url = 'https://github.com/Marlon2132/TKHELPER/blob/main/TKHELPER.luac?raw=true'
@@ -148,7 +148,7 @@ function main()
 			updateIni = inicfg.load(nil, update_path)
 			if tonumber(updateIni.info.vers) > script_vers then
 				update_state = true
-				sampAddChatMessage(tag .. 'Есть обновление! Версия: ' .. updateIni.info.vers_text , main_color)
+				sampAddChatMessage(tag .. 'Г…Г±ГІГј Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ! Г‚ГҐГ°Г±ГЁГї: ' .. updateIni.info.vers_text , main_color)
 			end
 			os.remove(update_path)
 		end
@@ -171,7 +171,7 @@ function main()
 		if update_state then
 			downloadUrlToFile(script_url, script_path_path, function(id, status)
 				if status == dlstatus.STATUS_ENDDOWNLOADDATA then
-					sampAddChatMessage(tag .. 'Скрипт обновлён.', main_color)
+					sampAddChatMessage(tag .. 'Г‘ГЄГ°ГЁГЇГІ Г®ГЎГ­Г®ГўГ«ВёГ­.', main_color)
 					thisScript():reload()
 				end
 			end)
@@ -181,16 +181,16 @@ function main()
 		if nastroikastatuszakaz ~= 1 then
 			if on == 2 or on == 3 then
 				if vodilnamarshrutenow == -1 then
-					renderFontDrawText(my_font, blue_color_text .. tochkaotmarshrut .. '\n' .. tochkadomarshrut .. '\n' .. main_color_text .. 'Максимально ' .. green_color_text .. maxprod - otvezenoprod .. ' ед. (по ' .. stoimostza1prod .. '$)' .. main_color_text .. '\nМаксимально ' .. second_color_text .. (maxprod - otvezenoprod) * stoimostza1prod * (1-komissiya) .. '$\n' .. red_color_text .. vodilnamarshrute .. main_color_text .. ' водитель(-я, -ей)' , raspolozhsw, raspolozhsh, 0xFFFFFFFF)
+					renderFontDrawText(my_font, blue_color_text .. tochkaotmarshrut .. '\n' .. tochkadomarshrut .. '\n' .. main_color_text .. 'ГЊГ ГЄГ±ГЁГ¬Г Г«ГјГ­Г® ' .. green_color_text .. maxprod - otvezenoprod .. ' ГҐГ¤. (ГЇГ® ' .. stoimostza1prod .. '$)' .. main_color_text .. '\nГЊГ ГЄГ±ГЁГ¬Г Г«ГјГ­Г® ' .. second_color_text .. (maxprod - otvezenoprod) * stoimostza1prod * (1-komissiya) .. '$\n' .. red_color_text .. vodilnamarshrute .. main_color_text .. ' ГўГ®Г¤ГЁГІГҐГ«Гј(-Гї, -ГҐГ©)' , raspolozhsw, raspolozhsh, 0xFFFFFFFF)
 				else
-					renderFontDrawText(my_font, blue_color_text .. tochkaotmarshrut .. '\n' .. tochkadomarshrut .. '\n' .. main_color_text .. 'Максимально ' .. green_color_text .. maxprod - otvezenoprod .. ' ед. (по ' .. stoimostza1prod .. '$)' .. main_color_text .. '\nМаксимально ' .. second_color_text .. (maxprod - otvezenoprod) * stoimostza1prod * (1-komissiya) .. '$\n' .. red_color_text .. vodilnamarshrutenow .. main_color_text .. ' водитель(-я, -ей)' , raspolozhsw, raspolozhsh, 0xFFFFFFFF)
+					renderFontDrawText(my_font, blue_color_text .. tochkaotmarshrut .. '\n' .. tochkadomarshrut .. '\n' .. main_color_text .. 'ГЊГ ГЄГ±ГЁГ¬Г Г«ГјГ­Г® ' .. green_color_text .. maxprod - otvezenoprod .. ' ГҐГ¤. (ГЇГ® ' .. stoimostza1prod .. '$)' .. main_color_text .. '\nГЊГ ГЄГ±ГЁГ¬Г Г«ГјГ­Г® ' .. second_color_text .. (maxprod - otvezenoprod) * stoimostza1prod * (1-komissiya) .. '$\n' .. red_color_text .. vodilnamarshrutenow .. main_color_text .. ' ГўГ®Г¤ГЁГІГҐГ«Гј(-Гї, -ГҐГ©)' , raspolozhsw, raspolozhsh, 0xFFFFFFFF)
 				end
 			elseif on == 4 then
-				renderFontDrawText(my_font, blue_color_text .. tochkaotmarshrut .. '\n' .. tochkadomarshrut .. '\n' .. green_color_text .. vzyatoprods .. ' ед. (по ' .. stoimostza1prod .. '$)\n' .. second_color_text .. vzyatoprods * stoimostza1prod * (1-komissiya) .. '$' , raspolozhsw, raspolozhsh, 0xFFFFFFFF)
+				renderFontDrawText(my_font, blue_color_text .. tochkaotmarshrut .. '\n' .. tochkadomarshrut .. '\n' .. green_color_text .. vzyatoprods .. ' ГҐГ¤. (ГЇГ® ' .. stoimostza1prod .. '$)\n' .. second_color_text .. vzyatoprods * stoimostza1prod * (1-komissiya) .. '$' , raspolozhsw, raspolozhsh, 0xFFFFFFFF)
 			end
 		else
 			local xmousecord, ymousecord = getCursorPos()
-			renderFontDrawText(my_font, blue_color_text .. 'Порт LS\nНефтезавод\n' .. main_color_text .. 'Максимально ' .. green_color_text .. '5000 ед. (по 3$)' .. main_color_text .. '\nМаксимально ' .. second_color_text .. '15000$\n' .. red_color_text .. '3' .. main_color_text .. ' водитель(-я, -ей)' , xmousecord, ymousecord, 0xFFFFFFFF)	
+			renderFontDrawText(my_font, blue_color_text .. 'ГЏГ®Г°ГІ LS\nГЌГҐГґГІГҐГ§Г ГўГ®Г¤\n' .. main_color_text .. 'ГЊГ ГЄГ±ГЁГ¬Г Г«ГјГ­Г® ' .. green_color_text .. '5000 ГҐГ¤. (ГЇГ® 3$)' .. main_color_text .. '\nГЊГ ГЄГ±ГЁГ¬Г Г«ГјГ­Г® ' .. second_color_text .. '15000$\n' .. red_color_text .. '3' .. main_color_text .. ' ГўГ®Г¤ГЁГІГҐГ«Гј(-Гї, -ГҐГ©)' , xmousecord, ymousecord, 0xFFFFFFFF)	
 		end
 		wait(0)
 
@@ -199,28 +199,28 @@ function main()
     	sampAddChatMessage(tochkaotmarshrutforgorod .. ' - ' .. tochkadomarshrutforcheck .. ', ' .. stoimostza1prod .. '$ ' .. otvezenoprod .. '/' .. maxprod .. ' ' .. vodilnamarshrute, main_color)
     end]]
 
-		if isKeyJustPressed(VK_L) and not sampIsChatInputActive() and activatescript == 1 then -- КЛАВИША и активация
+		if isKeyJustPressed(VK_L) and not sampIsChatInputActive() and activatescript == 1 then -- ГЉГ‹ГЂГ‚Г€ГГЂ ГЁ Г ГЄГІГЁГўГ Г¶ГЁГї
 			if on == 0 then
 				on = 1
 				--[[for _, znachenie in ipairs(goroda) do
 					sampAddChatMessage(znachenie, main_color)
 				end]]
-				sampAddChatMessage(tag .. 'Поиск подходящих заказов...', main_color)
+				sampAddChatMessage(tag .. 'ГЏГ®ГЁГ±ГЄ ГЇГ®Г¤ГµГ®Г¤ГїГ№ГЁГµ Г§Г ГЄГ Г§Г®Гў...', main_color)
 				sampSendChat('/order')
 			else
 				on = 0
 				checkprods = 0
-				sampAddChatMessage(tag .. 'Ловля заказов остановлена.', main_color)
+				sampAddChatMessage(tag .. 'Г‹Г®ГўГ«Гї Г§Г ГЄГ Г§Г®Гў Г®Г±ГІГ Г­Г®ГўГ«ГҐГ­Г .', main_color)
 			end
 		end
 
 		if isKeyJustPressed(VK_M) and not sampIsChatInputActive() and activatescript == 1 then
 			if rejim == 0 then
 				rejim = 1
-				sampAddChatMessage(tag .. 'Выбран ' .. second_color_text .. 'фильтрованный ' .. main_color_text .. 'режим.', main_color)
+				sampAddChatMessage(tag .. 'Г‚Г»ГЎГ°Г Г­ ' .. second_color_text .. 'ГґГЁГ«ГјГІГ°Г®ГўГ Г­Г­Г»Г© ' .. main_color_text .. 'Г°ГҐГ¦ГЁГ¬.', main_color)
 			else
 				rejim = 0
-				sampAddChatMessage(tag .. 'Выбран ' .. second_color_text .. 'свободный ' .. main_color_text .. 'режим.', main_color)
+				sampAddChatMessage(tag .. 'Г‚Г»ГЎГ°Г Г­ ' .. second_color_text .. 'Г±ГўГ®ГЎГ®Г¤Г­Г»Г© ' .. main_color_text .. 'Г°ГҐГ¦ГЁГ¬.', main_color)
 			end
 		end
 
@@ -233,12 +233,12 @@ function main()
 				elseif list == 1 then
 					if activatescript == 0 then
 						activatescript = 1
-						sampAddChatMessage(tag .. 'Скрипт ' .. second_color_text .. 'активирован.' ,main_color)
+						sampAddChatMessage(tag .. 'Г‘ГЄГ°ГЁГЇГІ ' .. second_color_text .. 'Г ГЄГІГЁГўГЁГ°Г®ГўГ Г­.' ,main_color)
 						showlcldlg(8000)
 					else
 						activatescript = 0
 						on = 0
-						sampAddChatMessage(tag .. 'Скрипт ' .. second_color_text .. 'выключен.' ,main_color)
+						sampAddChatMessage(tag .. 'Г‘ГЄГ°ГЁГЇГІ ' .. second_color_text .. 'ГўГ»ГЄГ«ГѕГ·ГҐГ­.' ,main_color)
 						showlcldlg(8000)
 					end
 				elseif list == 2 then
@@ -304,8 +304,8 @@ function main()
 		if result then
 			if button == 1 then
 				if list == 0 then
-					sampAddChatMessage(tag .. second_color_text .. 'Выберите место, ' .. main_color_text .. 'где хотите установить статус заказа и ' .. second_color_text .. 'нажмите «ЛКМ».', main_color)
-					sampAddChatMessage(tag .. 'Чтобы ' .. second_color_text .. 'отменить ' .. main_color_text .. 'настройку ' .. second_color_text .. 'нажмите «ESC».', main_color)
+					sampAddChatMessage(tag .. second_color_text .. 'Г‚Г»ГЎГҐГ°ГЁГІГҐ Г¬ГҐГ±ГІГ®, ' .. main_color_text .. 'ГЈГ¤ГҐ ГµГ®ГІГЁГІГҐ ГіГ±ГІГ Г­Г®ГўГЁГІГј Г±ГІГ ГІГіГ± Г§Г ГЄГ Г§Г  ГЁ ' .. second_color_text .. 'Г­Г Г¦Г¬ГЁГІГҐ В«Г‹ГЉГЊВ».', main_color)
+					sampAddChatMessage(tag .. 'Г—ГІГ®ГЎГ» ' .. second_color_text .. 'Г®ГІГ¬ГҐГ­ГЁГІГј ' .. main_color_text .. 'Г­Г Г±ГІГ°Г®Г©ГЄГі ' .. second_color_text .. 'Г­Г Г¦Г¬ГЁГІГҐ В«ESCВ».', main_color)
 					nastroikastatuszakaz = 1
 					showCursor(true, true)
 				end
@@ -345,7 +345,7 @@ function main()
 					table.insert(linesSS, i)
 				end
 				removeLines(fileDirectory, linesSS)
-				sampAddChatMessage(tag .. 'Финансовая статистика была ' .. second_color_text .. 'очищена.', main_color)
+				sampAddChatMessage(tag .. 'Г”ГЁГ­Г Г­Г±Г®ГўГ Гї Г±ГІГ ГІГЁГ±ГІГЁГЄГ  ГЎГ»Г«Г  ' .. second_color_text .. 'Г®Г·ГЁГ№ГҐГ­Г .', main_color)
 				showlcldlg(8020)
 			else
 				showlcldlg(8020)
@@ -372,14 +372,14 @@ function onWindowMessage(uMsg, wParam, lParam)
 			raspolozhsh = ystzakaz
 			showCursor(false, false)
 			nastroikastatuszakaz = 0
-			sampAddChatMessage(tag .. 'Координаты статуса заказа ' .. second_color_text .. 'сохранены.', main_color)
+			sampAddChatMessage(tag .. 'ГЉГ®Г®Г°Г¤ГЁГ­Г ГІГ» Г±ГІГ ГІГіГ±Г  Г§Г ГЄГ Г§Г  ' .. second_color_text .. 'Г±Г®ГµГ°Г Г­ГҐГ­Г».', main_color)
 			save()
 		end
 		if wParam == 0x1B then
 			consumeWindowMessage()
 			showCursor(false, false)
 			nastroikastatuszakaz = 0
-			sampAddChatMessage(tag .. 'Настройка статуса заказа ' .. second_color_text .. 'была отменена.', main_color)
+			sampAddChatMessage(tag .. 'ГЌГ Г±ГІГ°Г®Г©ГЄГ  Г±ГІГ ГІГіГ±Г  Г§Г ГЄГ Г§Г  ' .. second_color_text .. 'ГЎГ»Г«Г  Г®ГІГ¬ГҐГ­ГҐГ­Г .', main_color)
 		end
 	end
 end
@@ -387,18 +387,18 @@ end
 function cmd_komka(arg)
 	if arg == nil or arg == '' or arg == ' ' or #arg == 0 then
 		komissiya = 0
-		sampAddChatMessage(tag .. 'Комиссия была ' .. second_color_text .. 'сброшена ' .. main_color_text .. 'или Вы ' .. second_color_text .. 'не ввели (неправильно ввели) значение.', main_color)
+		sampAddChatMessage(tag .. 'ГЉГ®Г¬ГЁГ±Г±ГЁГї ГЎГ»Г«Г  ' .. second_color_text .. 'Г±ГЎГ°Г®ГёГҐГ­Г  ' .. main_color_text .. 'ГЁГ«ГЁ Г‚Г» ' .. second_color_text .. 'Г­ГҐ ГўГўГҐГ«ГЁ (Г­ГҐГЇГ°Г ГўГЁГ«ГјГ­Г® ГўГўГҐГ«ГЁ) Г§Г­Г Г·ГҐГ­ГЁГҐ.', main_color)
 	else
 		if arg:find('%D+') then
 			komissiya = 0
-			sampAddChatMessage(tag .. 'Комиссия была ' .. second_color_text .. 'сброшена ' .. main_color_text .. 'или Вы ' .. second_color_text .. 'не ввели (неправильно ввели) значение.', main_color)
+			sampAddChatMessage(tag .. 'ГЉГ®Г¬ГЁГ±Г±ГЁГї ГЎГ»Г«Г  ' .. second_color_text .. 'Г±ГЎГ°Г®ГёГҐГ­Г  ' .. main_color_text .. 'ГЁГ«ГЁ Г‚Г» ' .. second_color_text .. 'Г­ГҐ ГўГўГҐГ«ГЁ (Г­ГҐГЇГ°Г ГўГЁГ«ГјГ­Г® ГўГўГҐГ«ГЁ) Г§Г­Г Г·ГҐГ­ГЁГҐ.', main_color)
 		else
 			if tonumber(arg) < 100 and tonumber(arg) > 0 then
 				komissiya = tonumber(arg)/100
-				sampAddChatMessage(tag .. 'Комиссия компании ' .. second_color_text .. 'установлена ' .. main_color_text .. 'на ' .. second_color_text .. arg .. ' процента(-ов).', main_color)
+				sampAddChatMessage(tag .. 'ГЉГ®Г¬ГЁГ±Г±ГЁГї ГЄГ®Г¬ГЇГ Г­ГЁГЁ ' .. second_color_text .. 'ГіГ±ГІГ Г­Г®ГўГ«ГҐГ­Г  ' .. main_color_text .. 'Г­Г  ' .. second_color_text .. arg .. ' ГЇГ°Г®Г¶ГҐГ­ГІГ (-Г®Гў).', main_color)
 			elseif tonumber(arg) >= 100 or tonumber(arg) < 0 then
 				komissiya = 0
-				sampAddChatMessage(tag .. 'Комиссия была ' .. second_color_text .. 'сброшена ' .. main_color_text .. 'или Вы ' .. second_color_text .. 'не ввели (неправильно ввели) значение.', main_color)
+				sampAddChatMessage(tag .. 'ГЉГ®Г¬ГЁГ±Г±ГЁГї ГЎГ»Г«Г  ' .. second_color_text .. 'Г±ГЎГ°Г®ГёГҐГ­Г  ' .. main_color_text .. 'ГЁГ«ГЁ Г‚Г» ' .. second_color_text .. 'Г­ГҐ ГўГўГҐГ«ГЁ (Г­ГҐГЇГ°Г ГўГЁГ«ГјГ­Г® ГўГўГҐГ«ГЁ) Г§Г­Г Г·ГҐГ­ГЁГҐ.', main_color)
 			end
 		end
 	end
@@ -407,42 +407,42 @@ end
 
 function cmd_gorod(arg)
 	if arg == '1' then
-		goroda = {'Порт LS', 'Завод продуктов', 'Темпл Драйв', 'Лос-Сантос Интернейшнл', 'Склад Мидл', 'Мебельный склад ЛС', 'Океанский порт', 'Эвери Констракшн', 'Склад Монтгомерри', 'Склад Блуберри', 'Округ Ред'}
-		sampAddChatMessage(tag .. 'Ловля заказов установлена в ' .. second_color_text .. 'г. Лос-Сантос.', main_color)
+		goroda = {'ГЏГ®Г°ГІ LS', 'Г‡Г ГўГ®Г¤ ГЇГ°Г®Г¤ГіГЄГІГ®Гў', 'Г’ГҐГ¬ГЇГ« Г„Г°Г Г©Гў', 'Г‹Г®Г±-Г‘Г Г­ГІГ®Г± Г€Г­ГІГҐГ°Г­ГҐГ©ГёГ­Г«', 'Г‘ГЄГ«Г Г¤ ГЊГЁГ¤Г«', 'ГЊГҐГЎГҐГ«ГјГ­Г»Г© Г±ГЄГ«Г Г¤ Г‹Г‘', 'ГЋГЄГҐГ Г­Г±ГЄГЁГ© ГЇГ®Г°ГІ', 'ГќГўГҐГ°ГЁ ГЉГ®Г­Г±ГІГ°Г ГЄГёГ­', 'Г‘ГЄГ«Г Г¤ ГЊГ®Г­ГІГЈГ®Г¬ГҐГ°Г°ГЁ', 'Г‘ГЄГ«Г Г¤ ГЃГ«ГіГЎГҐГ°Г°ГЁ', 'ГЋГЄГ°ГіГЈ ГђГҐГ¤'}
+		sampAddChatMessage(tag .. 'Г‹Г®ГўГ«Гї Г§Г ГЄГ Г§Г®Гў ГіГ±ГІГ Г­Г®ГўГ«ГҐГ­Г  Гў ' .. second_color_text .. 'ГЈ. Г‹Г®Г±-Г‘Г Г­ГІГ®Г±.', main_color)
 		if rejim == 0 then
 			rejim = 1
-			sampAddChatMessage(tag .. 'Выбран ' .. second_color_text .. 'фильтрованный ' .. main_color_text .. 'режим.', main_color)
+			sampAddChatMessage(tag .. 'Г‚Г»ГЎГ°Г Г­ ' .. second_color_text .. 'ГґГЁГ«ГјГІГ°Г®ГўГ Г­Г­Г»Г© ' .. main_color_text .. 'Г°ГҐГ¦ГЁГ¬.', main_color)
 		end
 	elseif arg == '2' then
-		goroda = {'Нефтезавод', 'Станция Елоу Белл', 'Лас%-Пайасадас', 'Северный склад ЛВ', 'Восточная стройка', 'АЭС', 'Мебельный склад ЛВ', 'Тьерра%-Робада', 'Восточный склад', 'Казино Розовый лебедь', 'Казино Камелот', 'Эль Кебрадос', '%{......%}', 'Стадион', 'Транизосторный завод'}
-		sampAddChatMessage(tag .. 'Ловля заказов установлена в ' .. second_color_text .. 'г. Лас-Вентурас.', main_color)
+		goroda = {'ГЌГҐГґГІГҐГ§Г ГўГ®Г¤', 'Г‘ГІГ Г­Г¶ГЁГї Г…Г«Г®Гі ГЃГҐГ«Г«', 'Г‹Г Г±%-ГЏГ Г©Г Г±Г Г¤Г Г±', 'Г‘ГҐГўГҐГ°Г­Г»Г© Г±ГЄГ«Г Г¤ Г‹Г‚', 'Г‚Г®Г±ГІГ®Г·Г­Г Гї Г±ГІГ°Г®Г©ГЄГ ', 'ГЂГќГ‘', 'ГЊГҐГЎГҐГ«ГјГ­Г»Г© Г±ГЄГ«Г Г¤ Г‹Г‚', 'Г’ГјГҐГ°Г°Г %-ГђГ®ГЎГ Г¤Г ', 'Г‚Г®Г±ГІГ®Г·Г­Г»Г© Г±ГЄГ«Г Г¤', 'ГЉГ Г§ГЁГ­Г® ГђГ®Г§Г®ГўГ»Г© Г«ГҐГЎГҐГ¤Гј', 'ГЉГ Г§ГЁГ­Г® ГЉГ Г¬ГҐГ«Г®ГІ', 'ГќГ«Гј ГЉГҐГЎГ°Г Г¤Г®Г±', '%{......%}', 'Г‘ГІГ Г¤ГЁГ®Г­', 'Г’Г°Г Г­ГЁГ§Г®Г±ГІГ®Г°Г­Г»Г© Г§Г ГўГ®Г¤'}
+		sampAddChatMessage(tag .. 'Г‹Г®ГўГ«Гї Г§Г ГЄГ Г§Г®Гў ГіГ±ГІГ Г­Г®ГўГ«ГҐГ­Г  Гў ' .. second_color_text .. 'ГЈ. Г‹Г Г±-Г‚ГҐГ­ГІГіГ°Г Г±.', main_color)
 		if rejim == 0 then
 			rejim = 1
-			sampAddChatMessage(tag .. 'Выбран ' .. second_color_text .. 'фильтрованный ' .. main_color_text .. 'режим.', main_color)
+			sampAddChatMessage(tag .. 'Г‚Г»ГЎГ°Г Г­ ' .. second_color_text .. 'ГґГЁГ«ГјГІГ°Г®ГўГ Г­Г­Г»Г© ' .. main_color_text .. 'Г°ГҐГ¦ГЁГ¬.', main_color)
 		end
 	elseif arg == '3' then
-		goroda = {'Порт SF', 'ЖК Силовичок', 'Энджел Пэйн', 'Голден Гейт Бридж', 'Трамвайное депо', 'Лесхоз', 'Автосалон СФ', 'Министерство Здравоохранения', 'Банковский порт', 'Трансляционная станция', 'Бэйсайд', 'Мебельный склад СФ', 'ЖК Вавилон', 'Ферма', 'Лодочный пирс', 'Хим%. завод', 'Уэтстоун'}
-		sampAddChatMessage(tag .. 'Ловля заказов установлена в ' .. second_color_text .. 'г. Сан-Фиерро.', main_color)
+		goroda = {'ГЏГ®Г°ГІ SF', 'Г†ГЉ Г‘ГЁГ«Г®ГўГЁГ·Г®ГЄ', 'ГќГ­Г¤Г¦ГҐГ« ГЏГЅГ©Г­', 'ГѓГ®Г«Г¤ГҐГ­ ГѓГҐГ©ГІ ГЃГ°ГЁГ¤Г¦', 'Г’Г°Г Г¬ГўГ Г©Г­Г®ГҐ Г¤ГҐГЇГ®', 'Г‹ГҐГ±ГµГ®Г§', 'ГЂГўГІГ®Г±Г Г«Г®Г­ Г‘Г”', 'ГЊГЁГ­ГЁГ±ГІГҐГ°Г±ГІГўГ® Г‡Г¤Г°Г ГўГ®Г®ГµГ°Г Г­ГҐГ­ГЁГї', 'ГЃГ Г­ГЄГ®ГўГ±ГЄГЁГ© ГЇГ®Г°ГІ', 'Г’Г°Г Г­Г±Г«ГїГ¶ГЁГ®Г­Г­Г Гї Г±ГІГ Г­Г¶ГЁГї', 'ГЃГЅГ©Г±Г Г©Г¤', 'ГЊГҐГЎГҐГ«ГјГ­Г»Г© Г±ГЄГ«Г Г¤ Г‘Г”', 'Г†ГЉ Г‚Г ГўГЁГ«Г®Г­', 'Г”ГҐГ°Г¬Г ', 'Г‹Г®Г¤Г®Г·Г­Г»Г© ГЇГЁГ°Г±', 'Г•ГЁГ¬%. Г§Г ГўГ®Г¤', 'Г“ГЅГІГ±ГІГ®ГіГ­'}
+		sampAddChatMessage(tag .. 'Г‹Г®ГўГ«Гї Г§Г ГЄГ Г§Г®Гў ГіГ±ГІГ Г­Г®ГўГ«ГҐГ­Г  Гў ' .. second_color_text .. 'ГЈ. Г‘Г Г­-Г”ГЁГҐГ°Г°Г®.', main_color)
 		if rejim == 0 then
 			rejim = 1
-			sampAddChatMessage(tag .. 'Выбран ' .. second_color_text .. 'фильтрованный ' .. main_color_text .. 'режим.', main_color)
+			sampAddChatMessage(tag .. 'Г‚Г»ГЎГ°Г Г­ ' .. second_color_text .. 'ГґГЁГ«ГјГІГ°Г®ГўГ Г­Г­Г»Г© ' .. main_color_text .. 'Г°ГҐГ¦ГЁГ¬.', main_color)
 		end
 	else
 		goroda = nil
-		sampAddChatMessage(tag .. 'Фильтр городов был ' .. second_color_text .. 'сброшен ' .. main_color_text .. 'или Вы ' .. second_color_text .. 'не ввели (неправильно ввели) номер города.', main_color)
+		sampAddChatMessage(tag .. 'Г”ГЁГ«ГјГІГ° ГЈГ®Г°Г®Г¤Г®Гў ГЎГ»Г« ' .. second_color_text .. 'Г±ГЎГ°Г®ГёГҐГ­ ' .. main_color_text .. 'ГЁГ«ГЁ Г‚Г» ' .. second_color_text .. 'Г­ГҐ ГўГўГҐГ«ГЁ (Г­ГҐГЇГ°Г ГўГЁГ«ГјГ­Г® ГўГўГҐГ«ГЁ) Г­Г®Г¬ГҐГ° ГЈГ®Г°Г®Г¤Г .', main_color)
 	end
 end
 
 function cmd_mesto(arg)
 	if arg == nil or arg == ' ' or arg == '' or #arg == 0  then
 		filtrmest = nil
-		sampAddChatMessage(tag .. 'Фильтр мест был ' .. second_color_text .. 'сброшен  ' .. main_color_text .. 'или Вы ' .. second_color_text .. 'не ввели (неправильно ввели) название места.', main_color)
+		sampAddChatMessage(tag .. 'Г”ГЁГ«ГјГІГ° Г¬ГҐГ±ГІ ГЎГ»Г« ' .. second_color_text .. 'Г±ГЎГ°Г®ГёГҐГ­  ' .. main_color_text .. 'ГЁГ«ГЁ Г‚Г» ' .. second_color_text .. 'Г­ГҐ ГўГўГҐГ«ГЁ (Г­ГҐГЇГ°Г ГўГЁГ«ГјГ­Г® ГўГўГҐГ«ГЁ) Г­Г Г§ГўГ Г­ГЁГҐ Г¬ГҐГ±ГІГ .', main_color)
 	else
 		filtrmest = string.gsub(tostring(arg):gsub('%.', '%.'), '%-', '%-')
-		sampAddChatMessage(tag .. 'Фильтр мест был ' .. second_color_text .. 'установлен ' .. main_color_text .. 'на ' .. second_color_text .. tostring(arg) .. '.', main_color)
+		sampAddChatMessage(tag .. 'Г”ГЁГ«ГјГІГ° Г¬ГҐГ±ГІ ГЎГ»Г« ' .. second_color_text .. 'ГіГ±ГІГ Г­Г®ГўГ«ГҐГ­ ' .. main_color_text .. 'Г­Г  ' .. second_color_text .. tostring(arg) .. '.', main_color)
 		if rejim == 0 then
 			rejim = 1
-			sampAddChatMessage(tag .. 'Выбран ' .. second_color_text .. 'фильтрованный ' .. main_color_text .. 'режим.', main_color)
+			sampAddChatMessage(tag .. 'Г‚Г»ГЎГ°Г Г­ ' .. second_color_text .. 'ГґГЁГ«ГјГІГ°Г®ГўГ Г­Г­Г»Г© ' .. main_color_text .. 'Г°ГҐГ¦ГЁГ¬.', main_color)
 		end
 	end
 end
@@ -450,10 +450,10 @@ end
 function cmd_prods(arg)
 	if tonumber(arg) == 0 or arg == nil or arg == ' ' or arg == '' or #arg == 0 then
 		minimalkaprods = 1
-		sampAddChatMessage(tag .. 'Фильтр количества продуктов ' .. second_color_text .. 'сброшен ' .. main_color_text .. 'или Вы ' .. second_color_text ..'не ввели (неправильно ввели) значение.', main_color)
+		sampAddChatMessage(tag .. 'Г”ГЁГ«ГјГІГ° ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ  ГЇГ°Г®Г¤ГіГЄГІГ®Гў ' .. second_color_text .. 'Г±ГЎГ°Г®ГёГҐГ­ ' .. main_color_text .. 'ГЁГ«ГЁ Г‚Г» ' .. second_color_text ..'Г­ГҐ ГўГўГҐГ«ГЁ (Г­ГҐГЇГ°Г ГўГЁГ«ГјГ­Г® ГўГўГҐГ«ГЁ) Г§Г­Г Г·ГҐГ­ГЁГҐ.', main_color)
 	else
 		minimalkaprods = tonumber(arg)
-		sampAddChatMessage(tag .. 'Фильтр количества продуктов установлен на ' .. second_color_text .. minimalkaprods .. ' ед.', main_color)
+		sampAddChatMessage(tag .. 'Г”ГЁГ«ГјГІГ° ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ  ГЇГ°Г®Г¤ГіГЄГІГ®Гў ГіГ±ГІГ Г­Г®ГўГ«ГҐГ­ Г­Г  ' .. second_color_text .. minimalkaprods .. ' ГҐГ¤.', main_color)
 	end
 	save()
 end
@@ -464,19 +464,19 @@ end
 
 function showlcldlg(arg)
 	if arg == 8000 then
-		sampShowDialog(8000, second_color_text .. 'TK HELPER: Меню', gray_color_text .. '1. ' .. main_color_text .. 'Полная инструкция\n' .. gray_color_text .. '2. ' .. main_color_text .. 'Активация\n' .. gray_color_text .. '3. ' .. main_color_text .. 'Финансовая статистика\n' .. gray_color_text .. '4. ' .. main_color_text .. 'Настройки', 'Выбрать', 'Закрыть', 2)
+		sampShowDialog(8000, second_color_text .. 'TK HELPER: ГЊГҐГ­Гѕ', gray_color_text .. '1. ' .. main_color_text .. 'ГЏГ®Г«Г­Г Гї ГЁГ­Г±ГІГ°ГіГЄГ¶ГЁГї\n' .. gray_color_text .. '2. ' .. main_color_text .. 'ГЂГЄГІГЁГўГ Г¶ГЁГї\n' .. gray_color_text .. '3. ' .. main_color_text .. 'Г”ГЁГ­Г Г­Г±Г®ГўГ Гї Г±ГІГ ГІГЁГ±ГІГЁГЄГ \n' .. gray_color_text .. '4. ' .. main_color_text .. 'ГЌГ Г±ГІГ°Г®Г©ГЄГЁ', 'Г‚Г»ГЎГ°Г ГІГј', 'Г‡Г ГЄГ°Г»ГІГј', 2)
 	elseif arg == 8001 then
-		sampShowDialog(8001, second_color_text .. 'TK HELPER: Режимы работы', main_color_text .. 'Данный скрипт имеет множество функций и фильтров, которые помогут Вам заработать денег в ТК.\nСуществует ' .. second_color_text .. 'два ' .. main_color_text .. 'режима работы скрипта: ' .. second_color_text .. 'свободный и фильтрованный.\n(!) По умолчанию стоит свободный режим.\n\n\t\t\t\t\t\t\t\t    СВОБОДНЫЙ\n\n' .. main_color_text .. 'В ' .. second_color_text .. 'свободном режиме ' .. main_color_text .. 'скрипт ловит абсолютно любые заказы и не подвергается каким-либо фильтрам (искл. - фильтр количества продуктов).' .. second_color_text .. '\n\n\t\t\t\t\t\t\t\tФИЛЬТРОВАННЫЙ\n\n' .. main_color_text .. 'В ' .. second_color_text .. 'фильтрованном режиме ' .. main_color_text .. 'скрипт ловит все заказы, которые удовлетворяют фильтрам.\n\n' .. second_color_text .. '(!) При активации какого-либо из фильтров (кроме фильтра кол-ва продуктов) автоматически включается фильтрованный режим.', 'Далее', 'Назад', 0)
+		sampShowDialog(8001, second_color_text .. 'TK HELPER: ГђГҐГ¦ГЁГ¬Г» Г°Г ГЎГ®ГІГ»', main_color_text .. 'Г„Г Г­Г­Г»Г© Г±ГЄГ°ГЁГЇГІ ГЁГ¬ГҐГҐГІ Г¬Г­Г®Г¦ГҐГ±ГІГўГ® ГґГіГ­ГЄГ¶ГЁГ© ГЁ ГґГЁГ«ГјГІГ°Г®Гў, ГЄГ®ГІГ®Г°Г»ГҐ ГЇГ®Г¬Г®ГЈГіГІ Г‚Г Г¬ Г§Г Г°Г ГЎГ®ГІГ ГІГј Г¤ГҐГ­ГҐГЈ Гў Г’ГЉ.\nГ‘ГіГ№ГҐГ±ГІГўГіГҐГІ ' .. second_color_text .. 'Г¤ГўГ  ' .. main_color_text .. 'Г°ГҐГ¦ГЁГ¬Г  Г°Г ГЎГ®ГІГ» Г±ГЄГ°ГЁГЇГІГ : ' .. second_color_text .. 'Г±ГўГ®ГЎГ®Г¤Г­Г»Г© ГЁ ГґГЁГ«ГјГІГ°Г®ГўГ Г­Г­Г»Г©.\n(!) ГЏГ® ГіГ¬Г®Г«Г·Г Г­ГЁГѕ Г±ГІГ®ГЁГІ Г±ГўГ®ГЎГ®Г¤Г­Г»Г© Г°ГҐГ¦ГЁГ¬.\n\n\t\t\t\t\t\t\t\t    Г‘Г‚ГЋГЃГЋГ„ГЌГ›Г‰\n\n' .. main_color_text .. 'Г‚ ' .. second_color_text .. 'Г±ГўГ®ГЎГ®Г¤Г­Г®Г¬ Г°ГҐГ¦ГЁГ¬ГҐ ' .. main_color_text .. 'Г±ГЄГ°ГЁГЇГІ Г«Г®ГўГЁГІ Г ГЎГ±Г®Г«ГѕГІГ­Г® Г«ГѕГЎГ»ГҐ Г§Г ГЄГ Г§Г» ГЁ Г­ГҐ ГЇГ®Г¤ГўГҐГ°ГЈГ ГҐГІГ±Гї ГЄГ ГЄГЁГ¬-Г«ГЁГЎГ® ГґГЁГ«ГјГІГ°Г Г¬ (ГЁГ±ГЄГ«. - ГґГЁГ«ГјГІГ° ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ  ГЇГ°Г®Г¤ГіГЄГІГ®Гў).' .. second_color_text .. '\n\n\t\t\t\t\t\t\t\tГ”Г€Г‹ГњГ’ГђГЋГ‚ГЂГЌГЌГ›Г‰\n\n' .. main_color_text .. 'Г‚ ' .. second_color_text .. 'ГґГЁГ«ГјГІГ°Г®ГўГ Г­Г­Г®Г¬ Г°ГҐГ¦ГЁГ¬ГҐ ' .. main_color_text .. 'Г±ГЄГ°ГЁГЇГІ Г«Г®ГўГЁГІ ГўГ±ГҐ Г§Г ГЄГ Г§Г», ГЄГ®ГІГ®Г°Г»ГҐ ГіГ¤Г®ГўГ«ГҐГІГўГ®Г°ГїГѕГІ ГґГЁГ«ГјГІГ°Г Г¬.\n\n' .. second_color_text .. '(!) ГЏГ°ГЁ Г ГЄГІГЁГўГ Г¶ГЁГЁ ГЄГ ГЄГ®ГЈГ®-Г«ГЁГЎГ® ГЁГ§ ГґГЁГ«ГјГІГ°Г®Гў (ГЄГ°Г®Г¬ГҐ ГґГЁГ«ГјГІГ°Г  ГЄГ®Г«-ГўГ  ГЇГ°Г®Г¤ГіГЄГІГ®Гў) Г ГўГІГ®Г¬Г ГІГЁГ·ГҐГ±ГЄГЁ ГўГЄГ«ГѕГ·Г ГҐГІГ±Гї ГґГЁГ«ГјГІГ°Г®ГўГ Г­Г­Г»Г© Г°ГҐГ¦ГЁГ¬.', 'Г„Г Г«ГҐГҐ', 'ГЌГ Г§Г Г¤', 0)
 	elseif arg == 8002 then
-		sampShowDialog(8002, second_color_text .. 'TK HELPER: Фильтры', main_color_text .. 'Сущесвует несколько видов ' .. second_color_text .. 'фильтров.\n\n' .. gray_color_text .. '1. ' .. second_color_text .. 'Фильтр количества продуктов. ' .. main_color_text .. 'Данный фильтр регулирует минимальное количество продуктов для принятия заказа.\n    Чтобы активировать этот фильтр пропишите команду ' .. second_color_text .. '/prods. ' .. main_color_text .. 'Например, Вы установили ' .. second_color_text .. '/prods 3000.' .. main_color_text .. 'Скрипт будет ловить\n    только те заказы, в которых можно забрать 3000 и более продуктов. Этот фильтр работает в обоих режимах.\n    Чтобы сбросить фильтр достаточно написать ' .. second_color_text .. '/prods.\n\n' .. gray_color_text .. '2. ' .. second_color_text .. 'Фильтр начальных точек заказов. ' .. main_color_text .. 'Этот фильтр позволяет сортировать места, из которых берётся заказ.\n    Мест можно указывать несколько, а можно одно. Чтобы активировать фильтр пропишите команду ' .. second_color_text .. '/mesto.\n    ' .. main_color_text .. 'Например, Вы выбрали нефтезавод. Тогда скрипт будет ловить заказы только с нефтезавода, и команда будет выглядеть так: ' .. second_color_text .. '/mesto Нефтезавод.' .. main_color_text .. '\n    Если Вы хотите указать несколько мест, тогда нужно разделять места символом ' .. second_color_text .. '«/» ' .. main_color_text .. '(в самом конце ставить этот знак не обязательно).\n    К примеру, Вы выбрали нефтезавод и порт LS. Тогда скрипт будет ловить заказы только с нефтезавода и порта LS. Команда будет выглядеть так: ' .. second_color_text .. '/mesto Нефтезавод/Порт LS.' .. main_color_text .. '\n    Чтобы сбросить фильтр напишите команду ' .. second_color_text .. '/mesto.' .. gray_color_text .. '\n\n3. ' .. second_color_text .. 'Фильтр городов. ' .. main_color_text .. 'Данный фильтр позволяет фильтровать точки, из которых берутся заказы, по городам. Чтобы включить фильтр напишите команду ' .. second_color_text .. '/gorod [1-3].' .. main_color_text .. '\n    1 - ' .. second_color_text .. 'Лос-Сантос.' .. main_color_text .. '\n    2 - ' .. second_color_text .. 'Лас-Вентурас.' .. main_color_text .. '\n    3 - ' .. second_color_text .. 'Сан-Фиерро.' .. main_color_text .. '\n    Например, если Вы написали ' .. second_color_text .. '/gorod 2, ' .. main_color_text .. 'то скрипт будет ловить заказы только с Лас-Вентураса.\n    Чтобы сбросить фильтр, напишите команду ' .. second_color_text .. '/gorod.\n\n    (!) Примечание. В приоритете проверки заказов стоит фильтр мест. Это значит, что сначала проверяются места, а потом уже город.\n\n    (!) Обратите внимание, что этот фильтры мест и городов чувствительны к орфографии и к регистру, а также точки используются не для команды, а для конца предложения!', 'Далее', 'Назад', 0)
+		sampShowDialog(8002, second_color_text .. 'TK HELPER: Г”ГЁГ«ГјГІГ°Г»', main_color_text .. 'Г‘ГіГ№ГҐГ±ГўГіГҐГІ Г­ГҐГ±ГЄГ®Г«ГјГЄГ® ГўГЁГ¤Г®Гў ' .. second_color_text .. 'ГґГЁГ«ГјГІГ°Г®Гў.\n\n' .. gray_color_text .. '1. ' .. second_color_text .. 'Г”ГЁГ«ГјГІГ° ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ  ГЇГ°Г®Г¤ГіГЄГІГ®Гў. ' .. main_color_text .. 'Г„Г Г­Г­Г»Г© ГґГЁГ«ГјГІГ° Г°ГҐГЈГіГ«ГЁГ°ГіГҐГІ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г®ГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЇГ°Г®Г¤ГіГЄГІГ®Гў Г¤Г«Гї ГЇГ°ГЁГ­ГїГІГЁГї Г§Г ГЄГ Г§Г .\n    Г—ГІГ®ГЎГ» Г ГЄГІГЁГўГЁГ°Г®ГўГ ГІГј ГЅГІГ®ГІ ГґГЁГ«ГјГІГ° ГЇГ°Г®ГЇГЁГёГЁГІГҐ ГЄГ®Г¬Г Г­Г¤Гі ' .. second_color_text .. '/prods. ' .. main_color_text .. 'ГЌГ ГЇГ°ГЁГ¬ГҐГ°, Г‚Г» ГіГ±ГІГ Г­Г®ГўГЁГ«ГЁ ' .. second_color_text .. '/prods 3000.' .. main_color_text .. 'Г‘ГЄГ°ГЁГЇГІ ГЎГіГ¤ГҐГІ Г«Г®ГўГЁГІГј\n    ГІГ®Г«ГјГЄГ® ГІГҐ Г§Г ГЄГ Г§Г», Гў ГЄГ®ГІГ®Г°Г»Гµ Г¬Г®Г¦Г­Г® Г§Г ГЎГ°Г ГІГј 3000 ГЁ ГЎГ®Г«ГҐГҐ ГЇГ°Г®Г¤ГіГЄГІГ®Гў. ГќГІГ®ГІ ГґГЁГ«ГјГІГ° Г°Г ГЎГ®ГІГ ГҐГІ Гў Г®ГЎГ®ГЁГµ Г°ГҐГ¦ГЁГ¬Г Гµ.\n    Г—ГІГ®ГЎГ» Г±ГЎГ°Г®Г±ГЁГІГј ГґГЁГ«ГјГІГ° Г¤Г®Г±ГІГ ГІГ®Г·Г­Г® Г­Г ГЇГЁГ±Г ГІГј ' .. second_color_text .. '/prods.\n\n' .. gray_color_text .. '2. ' .. second_color_text .. 'Г”ГЁГ«ГјГІГ° Г­Г Г·Г Г«ГјГ­Г»Гµ ГІГ®Г·ГҐГЄ Г§Г ГЄГ Г§Г®Гў. ' .. main_color_text .. 'ГќГІГ®ГІ ГґГЁГ«ГјГІГ° ГЇГ®Г§ГўГ®Г«ГїГҐГІ Г±Г®Г°ГІГЁГ°Г®ГўГ ГІГј Г¬ГҐГ±ГІГ , ГЁГ§ ГЄГ®ГІГ®Г°Г»Гµ ГЎГҐГ°ВёГІГ±Гї Г§Г ГЄГ Г§.\n    ГЊГҐГ±ГІ Г¬Г®Г¦Г­Г® ГіГЄГ Г§Г»ГўГ ГІГј Г­ГҐГ±ГЄГ®Г«ГјГЄГ®, Г  Г¬Г®Г¦Г­Г® Г®Г¤Г­Г®. Г—ГІГ®ГЎГ» Г ГЄГІГЁГўГЁГ°Г®ГўГ ГІГј ГґГЁГ«ГјГІГ° ГЇГ°Г®ГЇГЁГёГЁГІГҐ ГЄГ®Г¬Г Г­Г¤Гі ' .. second_color_text .. '/mesto.\n    ' .. main_color_text .. 'ГЌГ ГЇГ°ГЁГ¬ГҐГ°, Г‚Г» ГўГ»ГЎГ°Г Г«ГЁ Г­ГҐГґГІГҐГ§Г ГўГ®Г¤. Г’Г®ГЈГ¤Г  Г±ГЄГ°ГЁГЇГІ ГЎГіГ¤ГҐГІ Г«Г®ГўГЁГІГј Г§Г ГЄГ Г§Г» ГІГ®Г«ГјГЄГ® Г± Г­ГҐГґГІГҐГ§Г ГўГ®Г¤Г , ГЁ ГЄГ®Г¬Г Г­Г¤Г  ГЎГіГ¤ГҐГІ ГўГ»ГЈГ«ГїГ¤ГҐГІГј ГІГ ГЄ: ' .. second_color_text .. '/mesto ГЌГҐГґГІГҐГ§Г ГўГ®Г¤.' .. main_color_text .. '\n    Г…Г±Г«ГЁ Г‚Г» ГµГ®ГІГЁГІГҐ ГіГЄГ Г§Г ГІГј Г­ГҐГ±ГЄГ®Г«ГјГЄГ® Г¬ГҐГ±ГІ, ГІГ®ГЈГ¤Г  Г­ГіГ¦Г­Г® Г°Г Г§Г¤ГҐГ«ГїГІГј Г¬ГҐГ±ГІГ  Г±ГЁГ¬ГўГ®Г«Г®Г¬ ' .. second_color_text .. 'В«/В» ' .. main_color_text .. '(Гў Г±Г Г¬Г®Г¬ ГЄГ®Г­Г¶ГҐ Г±ГІГ ГўГЁГІГј ГЅГІГ®ГІ Г§Г­Г ГЄ Г­ГҐ Г®ГЎГїГ§Г ГІГҐГ«ГјГ­Г®).\n    ГЉ ГЇГ°ГЁГ¬ГҐГ°Гі, Г‚Г» ГўГ»ГЎГ°Г Г«ГЁ Г­ГҐГґГІГҐГ§Г ГўГ®Г¤ ГЁ ГЇГ®Г°ГІ LS. Г’Г®ГЈГ¤Г  Г±ГЄГ°ГЁГЇГІ ГЎГіГ¤ГҐГІ Г«Г®ГўГЁГІГј Г§Г ГЄГ Г§Г» ГІГ®Г«ГјГЄГ® Г± Г­ГҐГґГІГҐГ§Г ГўГ®Г¤Г  ГЁ ГЇГ®Г°ГІГ  LS. ГЉГ®Г¬Г Г­Г¤Г  ГЎГіГ¤ГҐГІ ГўГ»ГЈГ«ГїГ¤ГҐГІГј ГІГ ГЄ: ' .. second_color_text .. '/mesto ГЌГҐГґГІГҐГ§Г ГўГ®Г¤/ГЏГ®Г°ГІ LS.' .. main_color_text .. '\n    Г—ГІГ®ГЎГ» Г±ГЎГ°Г®Г±ГЁГІГј ГґГЁГ«ГјГІГ° Г­Г ГЇГЁГёГЁГІГҐ ГЄГ®Г¬Г Г­Г¤Гі ' .. second_color_text .. '/mesto.' .. gray_color_text .. '\n\n3. ' .. second_color_text .. 'Г”ГЁГ«ГјГІГ° ГЈГ®Г°Г®Г¤Г®Гў. ' .. main_color_text .. 'Г„Г Г­Г­Г»Г© ГґГЁГ«ГјГІГ° ГЇГ®Г§ГўГ®Г«ГїГҐГІ ГґГЁГ«ГјГІГ°Г®ГўГ ГІГј ГІГ®Г·ГЄГЁ, ГЁГ§ ГЄГ®ГІГ®Г°Г»Гµ ГЎГҐГ°ГіГІГ±Гї Г§Г ГЄГ Г§Г», ГЇГ® ГЈГ®Г°Г®Г¤Г Г¬. Г—ГІГ®ГЎГ» ГўГЄГ«ГѕГ·ГЁГІГј ГґГЁГ«ГјГІГ° Г­Г ГЇГЁГёГЁГІГҐ ГЄГ®Г¬Г Г­Г¤Гі ' .. second_color_text .. '/gorod [1-3].' .. main_color_text .. '\n    1 - ' .. second_color_text .. 'Г‹Г®Г±-Г‘Г Г­ГІГ®Г±.' .. main_color_text .. '\n    2 - ' .. second_color_text .. 'Г‹Г Г±-Г‚ГҐГ­ГІГіГ°Г Г±.' .. main_color_text .. '\n    3 - ' .. second_color_text .. 'Г‘Г Г­-Г”ГЁГҐГ°Г°Г®.' .. main_color_text .. '\n    ГЌГ ГЇГ°ГЁГ¬ГҐГ°, ГҐГ±Г«ГЁ Г‚Г» Г­Г ГЇГЁГ±Г Г«ГЁ ' .. second_color_text .. '/gorod 2, ' .. main_color_text .. 'ГІГ® Г±ГЄГ°ГЁГЇГІ ГЎГіГ¤ГҐГІ Г«Г®ГўГЁГІГј Г§Г ГЄГ Г§Г» ГІГ®Г«ГјГЄГ® Г± Г‹Г Г±-Г‚ГҐГ­ГІГіГ°Г Г±Г .\n    Г—ГІГ®ГЎГ» Г±ГЎГ°Г®Г±ГЁГІГј ГґГЁГ«ГјГІГ°, Г­Г ГЇГЁГёГЁГІГҐ ГЄГ®Г¬Г Г­Г¤Гі ' .. second_color_text .. '/gorod.\n\n    (!) ГЏГ°ГЁГ¬ГҐГ·Г Г­ГЁГҐ. Г‚ ГЇГ°ГЁГ®Г°ГЁГІГҐГІГҐ ГЇГ°Г®ГўГҐГ°ГЄГЁ Г§Г ГЄГ Г§Г®Гў Г±ГІГ®ГЁГІ ГґГЁГ«ГјГІГ° Г¬ГҐГ±ГІ. ГќГІГ® Г§Г­Г Г·ГЁГІ, Г·ГІГ® Г±Г­Г Г·Г Г«Г  ГЇГ°Г®ГўГҐГ°ГїГѕГІГ±Гї Г¬ГҐГ±ГІГ , Г  ГЇГ®ГІГ®Г¬ ГіГ¦ГҐ ГЈГ®Г°Г®Г¤.\n\n    (!) ГЋГЎГ°Г ГІГЁГІГҐ ГўГ­ГЁГ¬Г Г­ГЁГҐ, Г·ГІГ® ГЅГІГ®ГІ ГґГЁГ«ГјГІГ°Г» Г¬ГҐГ±ГІ ГЁ ГЈГ®Г°Г®Г¤Г®Гў Г·ГіГўГ±ГІГўГЁГІГҐГ«ГјГ­Г» ГЄ Г®Г°ГґГ®ГЈГ°Г ГґГЁГЁ ГЁ ГЄ Г°ГҐГЈГЁГ±ГІГ°Гі, Г  ГІГ ГЄГ¦ГҐ ГІГ®Г·ГЄГЁ ГЁГ±ГЇГ®Г«ГјГ§ГіГѕГІГ±Гї Г­ГҐ Г¤Г«Гї ГЄГ®Г¬Г Г­Г¤Г», Г  Г¤Г«Гї ГЄГ®Г­Г¶Г  ГЇГ°ГҐГ¤Г«Г®Г¦ГҐГ­ГЁГї!', 'Г„Г Г«ГҐГҐ', 'ГЌГ Г§Г Г¤', 0)
 	elseif arg == 8003 then
-		sampShowDialog(8003, second_color_text .. 'TK HELPER: Прочее', main_color_text .. 'Чтобы ' .. second_color_text .. 'установить комиссию ' .. main_color_text .. 'компании напишите команду ' .. second_color_text .. '/komka.' .. main_color_text .. '\nНапример, если вы хотите установить комиссию 25 процентов, то команда будет выглядеть так: ' .. second_color_text .. '/komka 25.\nДля своей фуры комиссия 5 процентов.' .. main_color_text .. '\n\nСкрипт активируется нажатием второго пункта в меню. Именно после активации начинают работать кнопки.\n\n' .. second_color_text .. '(!) Не пользуйтесь чатом и диалогами во время работы скрипта.\nЕсли нужно воспользоваться чатом или диалогом, то выключите ловлю заказов.', 'Далее', 'Назад', 0)
+		sampShowDialog(8003, second_color_text .. 'TK HELPER: ГЏГ°Г®Г·ГҐГҐ', main_color_text .. 'Г—ГІГ®ГЎГ» ' .. second_color_text .. 'ГіГ±ГІГ Г­Г®ГўГЁГІГј ГЄГ®Г¬ГЁГ±Г±ГЁГѕ ' .. main_color_text .. 'ГЄГ®Г¬ГЇГ Г­ГЁГЁ Г­Г ГЇГЁГёГЁГІГҐ ГЄГ®Г¬Г Г­Г¤Гі ' .. second_color_text .. '/komka.' .. main_color_text .. '\nГЌГ ГЇГ°ГЁГ¬ГҐГ°, ГҐГ±Г«ГЁ ГўГ» ГµГ®ГІГЁГІГҐ ГіГ±ГІГ Г­Г®ГўГЁГІГј ГЄГ®Г¬ГЁГ±Г±ГЁГѕ 25 ГЇГ°Г®Г¶ГҐГ­ГІГ®Гў, ГІГ® ГЄГ®Г¬Г Г­Г¤Г  ГЎГіГ¤ГҐГІ ГўГ»ГЈГ«ГїГ¤ГҐГІГј ГІГ ГЄ: ' .. second_color_text .. '/komka 25.\nГ„Г«Гї Г±ГўГ®ГҐГ© ГґГіГ°Г» ГЄГ®Г¬ГЁГ±Г±ГЁГї 5 ГЇГ°Г®Г¶ГҐГ­ГІГ®Гў.' .. main_color_text .. '\n\nГ‘ГЄГ°ГЁГЇГІ Г ГЄГІГЁГўГЁГ°ГіГҐГІГ±Гї Г­Г Г¦Г ГІГЁГҐГ¬ ГўГІГ®Г°Г®ГЈГ® ГЇГіГ­ГЄГІГ  Гў Г¬ГҐГ­Гѕ. Г€Г¬ГҐГ­Г­Г® ГЇГ®Г±Г«ГҐ Г ГЄГІГЁГўГ Г¶ГЁГЁ Г­Г Г·ГЁГ­Г ГѕГІ Г°Г ГЎГ®ГІГ ГІГј ГЄГ­Г®ГЇГЄГЁ.\n\n' .. second_color_text .. '(!) ГЌГҐ ГЇГ®Г«ГјГ§ГіГ©ГІГҐГ±Гј Г·Г ГІГ®Г¬ ГЁ Г¤ГЁГ Г«Г®ГЈГ Г¬ГЁ ГўГ® ГўГ°ГҐГ¬Гї Г°Г ГЎГ®ГІГ» Г±ГЄГ°ГЁГЇГІГ .\nГ…Г±Г«ГЁ Г­ГіГ¦Г­Г® ГўГ®Г±ГЇГ®Г«ГјГ§Г®ГўГ ГІГјГ±Гї Г·Г ГІГ®Г¬ ГЁГ«ГЁ Г¤ГЁГ Г«Г®ГЈГ®Г¬, ГІГ® ГўГ»ГЄГ«ГѕГ·ГЁГІГҐ Г«Г®ГўГ«Гѕ Г§Г ГЄГ Г§Г®Гў.', 'Г„Г Г«ГҐГҐ', 'ГЌГ Г§Г Г¤', 0)
 	elseif arg == 8004 then
-		sampShowDialog(8004, second_color_text .. 'TK HELPER: Кнопки', main_color_text .. 'Чтобы включить ловлю нажмите клавишу ' .. second_color_text .. '«L».' .. main_color_text .. '\nЧтобы сменить режим ловли нажмите клавишу ' .. second_color_text .. '«M».', 'Далее', 'Назад', 0)
+		sampShowDialog(8004, second_color_text .. 'TK HELPER: ГЉГ­Г®ГЇГЄГЁ', main_color_text .. 'Г—ГІГ®ГЎГ» ГўГЄГ«ГѕГ·ГЁГІГј Г«Г®ГўГ«Гѕ Г­Г Г¦Г¬ГЁГІГҐ ГЄГ«Г ГўГЁГёГі ' .. second_color_text .. 'В«LВ».' .. main_color_text .. '\nГ—ГІГ®ГЎГ» Г±Г¬ГҐГ­ГЁГІГј Г°ГҐГ¦ГЁГ¬ Г«Г®ГўГ«ГЁ Г­Г Г¦Г¬ГЁГІГҐ ГЄГ«Г ГўГЁГёГі ' .. second_color_text .. 'В«MВ».', 'Г„Г Г«ГҐГҐ', 'ГЌГ Г§Г Г¤', 0)
 	elseif arg == 8005 then
-		sampShowDialog(8005, second_color_text .. 'TK HELPER: Просмотр статистики', second_color_text .. 'Финансовую статистику ' .. main_color_text .. 'можно просмотреть нажатием третьего пункта в меню.\nТам Вы можете просмотреть статистику за день, за всё время.\nТакже отдельно можно посмотреть прибыль за каждый день и соответствующей кнопкой очистить статистику.\n\nСтатистику можно посмотреть по следующему пути:\n' .. second_color_text .. getGameDirectory() .. '\\moonloader\\config\\TKHELPER by Marlon.txt', 'Закрыть', 'Назад', 0)
+		sampShowDialog(8005, second_color_text .. 'TK HELPER: ГЏГ°Г®Г±Г¬Г®ГІГ° Г±ГІГ ГІГЁГ±ГІГЁГЄГЁ', second_color_text .. 'Г”ГЁГ­Г Г­Г±Г®ГўГіГѕ Г±ГІГ ГІГЁГ±ГІГЁГЄГі ' .. main_color_text .. 'Г¬Г®Г¦Г­Г® ГЇГ°Г®Г±Г¬Г®ГІГ°ГҐГІГј Г­Г Г¦Г ГІГЁГҐГ¬ ГІГ°ГҐГІГјГҐГЈГ® ГЇГіГ­ГЄГІГ  Гў Г¬ГҐГ­Гѕ.\nГ’Г Г¬ Г‚Г» Г¬Г®Г¦ГҐГІГҐ ГЇГ°Г®Г±Г¬Г®ГІГ°ГҐГІГј Г±ГІГ ГІГЁГ±ГІГЁГЄГі Г§Г  Г¤ГҐГ­Гј, Г§Г  ГўГ±Вё ГўГ°ГҐГ¬Гї.\nГ’Г ГЄГ¦ГҐ Г®ГІГ¤ГҐГ«ГјГ­Г® Г¬Г®Г¦Г­Г® ГЇГ®Г±Г¬Г®ГІГ°ГҐГІГј ГЇГ°ГЁГЎГ»Г«Гј Г§Г  ГЄГ Г¦Г¤Г»Г© Г¤ГҐГ­Гј ГЁ Г±Г®Г®ГІГўГҐГІГ±ГІГўГіГѕГ№ГҐГ© ГЄГ­Г®ГЇГЄГ®Г© Г®Г·ГЁГ±ГІГЁГІГј Г±ГІГ ГІГЁГ±ГІГЁГЄГі.\n\nГ‘ГІГ ГІГЁГ±ГІГЁГЄГі Г¬Г®Г¦Г­Г® ГЇГ®Г±Г¬Г®ГІГ°ГҐГІГј ГЇГ® Г±Г«ГҐГ¤ГіГѕГ№ГҐГ¬Гі ГЇГіГІГЁ:\n' .. second_color_text .. getGameDirectory() .. '\\moonloader\\config\\TKHELPER by Marlon.txt', 'Г‡Г ГЄГ°Г»ГІГј', 'ГЌГ Г§Г Г¤', 0)
 	elseif arg == 8006 then
-		sampShowDialog(8006, second_color_text .. 'TK HELPER: Настройки', gray_color_text .. '1. ' .. main_color_text .. 'Статус заказа', 'Выбрать', 'Назад', 2)
+		sampShowDialog(8006, second_color_text .. 'TK HELPER: ГЌГ Г±ГІГ°Г®Г©ГЄГЁ', gray_color_text .. '1. ' .. main_color_text .. 'Г‘ГІГ ГІГіГ± Г§Г ГЄГ Г§Г ', 'Г‚Г»ГЎГ°Г ГІГј', 'ГЌГ Г§Г Г¤', 2)
 	elseif arg == 8020 then
 		local iii = 0
 		f:seek('set', 0)
@@ -508,7 +508,7 @@ function showlcldlg(arg)
 		else
 			segzarab = 0
 		end
-		sampShowDialog(8020, second_color_text .. 'TK HELPER: Финансовая статистика', ' \t \n' .. gray_color_text .. '1. ' .. main_color_text .. 'Всего заработано: \t' .. lightgreen_color_text .. '[' .. iii .. '$]\n' .. gray_color_text .. '2. ' .. main_color_text .. 'Заработано за день: \t' .. lightgreen_color_text .. '[' .. segzarab .. '$]\n' .. gray_color_text .. '3. ' .. main_color_text .. 'Полная финансовая статистика: \t' .. second_color_text .. '[Посмотреть]\n' .. gray_color_text .. '4. ' .. main_color_text .. 'Очистить финансовую статистику: \t' .. red_color_text .. '[Очистить]', 'Выбрать', 'Назад', 5)
+		sampShowDialog(8020, second_color_text .. 'TK HELPER: Г”ГЁГ­Г Г­Г±Г®ГўГ Гї Г±ГІГ ГІГЁГ±ГІГЁГЄГ ', ' \t \n' .. gray_color_text .. '1. ' .. main_color_text .. 'Г‚Г±ГҐГЈГ® Г§Г Г°Г ГЎГ®ГІГ Г­Г®: \t' .. lightgreen_color_text .. '[' .. iii .. '$]\n' .. gray_color_text .. '2. ' .. main_color_text .. 'Г‡Г Г°Г ГЎГ®ГІГ Г­Г® Г§Г  Г¤ГҐГ­Гј: \t' .. lightgreen_color_text .. '[' .. segzarab .. '$]\n' .. gray_color_text .. '3. ' .. main_color_text .. 'ГЏГ®Г«Г­Г Гї ГґГЁГ­Г Г­Г±Г®ГўГ Гї Г±ГІГ ГІГЁГ±ГІГЁГЄГ : \t' .. second_color_text .. '[ГЏГ®Г±Г¬Г®ГІГ°ГҐГІГј]\n' .. gray_color_text .. '4. ' .. main_color_text .. 'ГЋГ·ГЁГ±ГІГЁГІГј ГґГЁГ­Г Г­Г±Г®ГўГіГѕ Г±ГІГ ГІГЁГ±ГІГЁГЄГі: \t' .. red_color_text .. '[ГЋГ·ГЁГ±ГІГЁГІГј]', 'Г‚Г»ГЎГ°Г ГІГј', 'ГЌГ Г§Г Г¤', 5)
 	elseif arg == 8021 then
 		finstat = ''
 		f:seek('set', 0)
@@ -516,9 +516,9 @@ function showlcldlg(arg)
 			chisl, mesyac, god, zarab = line:match('(%d+)%/(%d+)%/(%d+) (%d+)%$')
 			finstat = finstat .. '\n' .. main_color_text .. chisl .. '.' .. mesyac .. '.' .. god .. '\t' .. lightgreen_color_text .. zarab ..'$' 
 		end
-		sampShowDialog(8021, second_color_text .. 'TK HELPER: Полная финансовая статистика', second_color_text .. 'Дата:\tПрибыль:' .. finstat , 'Выбрать', 'Назад', 5)
+		sampShowDialog(8021, second_color_text .. 'TK HELPER: ГЏГ®Г«Г­Г Гї ГґГЁГ­Г Г­Г±Г®ГўГ Гї Г±ГІГ ГІГЁГ±ГІГЁГЄГ ', second_color_text .. 'Г„Г ГІГ :\tГЏГ°ГЁГЎГ»Г«Гј:' .. finstat , 'Г‚Г»ГЎГ°Г ГІГј', 'ГЌГ Г§Г Г¤', 5)
 	elseif arg == 8022 then
-		sampShowDialog(8022, second_color_text .. 'TK HELPER: Подтверждение действия', main_color_text .. 'Вы ' .. second_color_text .. 'уверены, ' .. main_color_text .. 'что хотите ' .. second_color_text .. 'очистить финансовую статистику?', 'Да', 'Нет', 0)
+		sampShowDialog(8022, second_color_text .. 'TK HELPER: ГЏГ®Г¤ГІГўГҐГ°Г¦Г¤ГҐГ­ГЁГҐ Г¤ГҐГ©Г±ГІГўГЁГї', main_color_text .. 'Г‚Г» ' .. second_color_text .. 'ГіГўГҐГ°ГҐГ­Г», ' .. main_color_text .. 'Г·ГІГ® ГµГ®ГІГЁГІГҐ ' .. second_color_text .. 'Г®Г·ГЁГ±ГІГЁГІГј ГґГЁГ­Г Г­Г±Г®ГўГіГѕ Г±ГІГ ГІГЁГ±ГІГЁГЄГі?', 'Г„Г ', 'ГЌГҐГІ', 0)
 	end
 end
 
@@ -613,7 +613,7 @@ function sampev.onShowDialog(dialogId, style, title, button1, button2, text)
 
 						if tonumber(line:match('.+, %d%$	%d+%/(%d+)	%d+')) - tonumber(line:match('.+, %d%$	(%d+)%/%d+	%d+')) >= minimalkaprods then
 							if vodilnamarshrutenow ~= 0 then
-								--sampAddChatMessage(tag .. 'Заказ ' .. second_color_text .. 'действителен. ' .. main_color_text .. 'На него отправляется ' .. red_color_text .. vodilnamarshrutenow .. main_color_text .. ' водитель(-я, -ей) помимо Вас.' , main_color)
+								--sampAddChatMessage(tag .. 'Г‡Г ГЄГ Г§ ' .. second_color_text .. 'Г¤ГҐГ©Г±ГІГўГЁГІГҐГ«ГҐГ­. ' .. main_color_text .. 'ГЌГ  Г­ГҐГЈГ® Г®ГІГЇГ°Г ГўГ«ГїГҐГІГ±Гї ' .. red_color_text .. vodilnamarshrutenow .. main_color_text .. ' ГўГ®Г¤ГЁГІГҐГ«Гј(-Гї, -ГҐГ©) ГЇГ®Г¬ГЁГ¬Г® Г‚Г Г±.' , main_color)
 								sampSendDialogResponse(3079, 0, nil, nil)
 								lua_thread.create(function()
 									wait(1800)
@@ -624,7 +624,7 @@ function sampev.onShowDialog(dialogId, style, title, button1, button2, text)
 								sampAddChatMessage('11', main_color)
 								return false
 							else
-								--sampAddChatMessage(tag .. 'Заказ ' .. second_color_text .. 'действителен. ' .. main_color_text .. 'На него никто не отправился помимо Вас.' , main_color)
+								--sampAddChatMessage(tag .. 'Г‡Г ГЄГ Г§ ' .. second_color_text .. 'Г¤ГҐГ©Г±ГІГўГЁГІГҐГ«ГҐГ­. ' .. main_color_text .. 'ГЌГ  Г­ГҐГЈГ® Г­ГЁГЄГІГ® Г­ГҐ Г®ГІГЇГ°Г ГўГЁГ«Г±Гї ГЇГ®Г¬ГЁГ¬Г® Г‚Г Г±.' , main_color)
 								sampSendDialogResponse(3079, 0, nil, nil)
 								lua_thread.create(function()
 									wait(1800)
@@ -638,7 +638,7 @@ function sampev.onShowDialog(dialogId, style, title, button1, button2, text)
 						else
 							on = 1
 							checkprods = 0
-							sampAddChatMessage(tag .. 'Заказ ' .. red_color_text .. 'недействителен. ' .. main_color_text .. 'Идёт поиск новых заказов...', main_color)
+							sampAddChatMessage(tag .. 'Г‡Г ГЄГ Г§ ' .. red_color_text .. 'Г­ГҐГ¤ГҐГ©Г±ГІГўГЁГІГҐГ«ГҐГ­. ' .. main_color_text .. 'Г€Г¤ВёГІ ГЇГ®ГЁГ±ГЄ Г­Г®ГўГ»Гµ Г§Г ГЄГ Г§Г®Гў...', main_color)
 							vodilnamarshrutenow = -1
 							sampSendDialogResponse(3079, 0, nil, nil)
 							lua_thread.create(function()
@@ -661,9 +661,9 @@ end
 function sampev.onServerMessage(color, text)
 	if on == 2 then
 		if color == 1724645631 then
-			if text == 'Вы выбрали заказ. Отправляйтесь к месту загрузки' then
+			if text == 'Г‚Г» ГўГ»ГЎГ°Г Г«ГЁ Г§Г ГЄГ Г§. ГЋГІГЇГ°Г ГўГ«ГїГ©ГІГҐГ±Гј ГЄ Г¬ГҐГ±ГІГі Г§Г ГЈГ°ГіГ§ГЄГЁ' then
 				on = 3
-				sampAddChatMessage(tag .. 'Найден заказ! ' .. blue_color_text .. tochkaotmarshrut .. ' - ' .. tochkadomarshrut .. green_color_text .. ' (' .. maxprod - otvezenoprod .. ' ед. по ' .. stoimostza1prod .. '$) ' .. main_color_text .. '| ' .. second_color_text .. (maxprod - otvezenoprod) * stoimostza1prod * (1-komissiya) .. '$.' , main_color)
+				sampAddChatMessage(tag .. 'ГЌГ Г©Г¤ГҐГ­ Г§Г ГЄГ Г§! ' .. blue_color_text .. tochkaotmarshrut .. ' - ' .. tochkadomarshrut .. green_color_text .. ' (' .. maxprod - otvezenoprod .. ' ГҐГ¤. ГЇГ® ' .. stoimostza1prod .. '$) ' .. main_color_text .. '| ' .. second_color_text .. (maxprod - otvezenoprod) * stoimostza1prod * (1-komissiya) .. '$.' , main_color)
 				checkprods = 1
 				lua_thread.create(function()
 					wait(1800)
@@ -678,17 +678,17 @@ function sampev.onServerMessage(color, text)
 	end
 	if on == 3 then
 		if color == 865730559 then
-			if text:find('Вы загрузили {FFAA00}%d+ ед. груза{3399FF}, отправляйтесь к месту разгрузки') then
+			if text:find('Г‚Г» Г§Г ГЈГ°ГіГ§ГЁГ«ГЁ {FFAA00}%d+ ГҐГ¤. ГЈГ°ГіГ§Г {3399FF}, Г®ГІГЇГ°Г ГўГ«ГїГ©ГІГҐГ±Гј ГЄ Г¬ГҐГ±ГІГі Г°Г Г§ГЈГ°ГіГ§ГЄГЁ') then
 				on = 4
 				checkprods = 0
-				vzyatoprods = text:match('Вы загрузили {FFAA00}(%d+) ед. груза{3399FF}, отправляйтесь к месту разгрузки')
+				vzyatoprods = text:match('Г‚Г» Г§Г ГЈГ°ГіГ§ГЁГ«ГЁ {FFAA00}(%d+) ГҐГ¤. ГЈГ°ГіГ§Г {3399FF}, Г®ГІГЇГ°Г ГўГ«ГїГ©ГІГҐГ±Гј ГЄ Г¬ГҐГ±ГІГі Г°Г Г§ГЈГ°ГіГ§ГЄГЁ')
 				sampAddChatMessage('222', main_color)
 			end
 		end
 		if color == -10092289 then
-			if text == 'Данный заказ более не действителен' then
+			if text == 'Г„Г Г­Г­Г»Г© Г§Г ГЄГ Г§ ГЎГ®Г«ГҐГҐ Г­ГҐ Г¤ГҐГ©Г±ГІГўГЁГІГҐГ«ГҐГ­' then
 				on = 1
-				sampAddChatMessage(tag .. 'Поиск подходящих заказов...', main_color)
+				sampAddChatMessage(tag .. 'ГЏГ®ГЁГ±ГЄ ГЇГ®Г¤ГµГ®Г¤ГїГ№ГЁГµ Г§Г ГЄГ Г§Г®Гў...', main_color)
 				lua_thread.create(function()
 					wait(200)
 					sampSendChat('/order')
@@ -696,17 +696,17 @@ function sampev.onServerMessage(color, text)
 			end
 		end
 		if color == 1724645631 then
-			if text == 'Цель отмечена на карте' then
+			if text == 'Г–ГҐГ«Гј Г®ГІГ¬ГҐГ·ГҐГ­Г  Г­Г  ГЄГ Г°ГІГҐ' then
 				return false
 			end
 		end
 	end
 	if on == 4 then
 		if color == 865730559 then
-			if text:find('Вы привезли %{FFAA00%}%d+ ед. груза %{3399FF%}и получили %{00cc99%}%d+%$%{3399FF%}. Комиссия компании %{ff8080%}%d+%$') or text:find('Вы привезли %{FFAA00%}%d+ ед. груза %{3399FF%}и получили %{00cc99%}%d+%$ на каждого водителя%{3399FF%}. Комиссия компании %{ff8080%}%d+%$') then
+			if text:find('Г‚Г» ГЇГ°ГЁГўГҐГ§Г«ГЁ %{FFAA00%}%d+ ГҐГ¤. ГЈГ°ГіГ§Г  %{3399FF%}ГЁ ГЇГ®Г«ГіГ·ГЁГ«ГЁ %{00cc99%}%d+%$%{3399FF%}. ГЉГ®Г¬ГЁГ±Г±ГЁГї ГЄГ®Г¬ГЇГ Г­ГЁГЁ %{ff8080%}%d+%$') or text:find('Г‚Г» ГЇГ°ГЁГўГҐГ§Г«ГЁ %{FFAA00%}%d+ ГҐГ¤. ГЈГ°ГіГ§Г  %{3399FF%}ГЁ ГЇГ®Г«ГіГ·ГЁГ«ГЁ %{00cc99%}%d+%$ Г­Г  ГЄГ Г¦Г¤Г®ГЈГ® ГўГ®Г¤ГЁГІГҐГ«Гї%{3399FF%}. ГЉГ®Г¬ГЁГ±Г±ГЁГї ГЄГ®Г¬ГЇГ Г­ГЁГЁ %{ff8080%}%d+%$') then
 				on = 1
 				vzyatoprods = 0
-				local zarabotaltolkochto = text:match('Вы привезли %{FFAA00%}%d+ ед. груза %{3399FF%}и получили %{00cc99%}(%d+)%$%{3399FF%}. Комиссия компании %{ff8080%}%d+%$')
+				local zarabotaltolkochto = text:match('Г‚Г» ГЇГ°ГЁГўГҐГ§Г«ГЁ %{FFAA00%}%d+ ГҐГ¤. ГЈГ°ГіГ§Г  %{3399FF%}ГЁ ГЇГ®Г«ГіГ·ГЁГ«ГЁ %{00cc99%}(%d+)%$%{3399FF%}. ГЉГ®Г¬ГЁГ±Г±ГЁГї ГЄГ®Г¬ГЇГ Г­ГЁГЁ %{ff8080%}%d+%$')
 				f:seek('set', 0)
 				if f:read('*a'):len() ~= 0 then
 					f:seek('set', 0)
@@ -743,7 +743,7 @@ function sampev.onServerMessage(color, text)
 					f:write(os.date('%d') .. '/' .. os.date('%m') .. '/' .. os.date('%Y') .. ' ' .. zarabotaltolkochto .. '$')
 					f:flush()
 				end
-				sampAddChatMessage(tag .. 'Поиск подходящих заказов...', main_color)
+				sampAddChatMessage(tag .. 'ГЏГ®ГЁГ±ГЄ ГЇГ®Г¤ГµГ®Г¤ГїГ№ГЁГµ Г§Г ГЄГ Г§Г®Гў...', main_color)
 				lua_thread.create(function()
 					wait(200)
 					sampSendChat('/order')
@@ -795,7 +795,7 @@ function removeLastLineInFile()
 	removeLines(fileDirectory, {getLastLineIndex(fileDirectory)})
 end
 
-function httpRequest(request, body, handler) -- copas.http -- ФУНКЦИЯ HTTP ЗАПРОСА
+function httpRequest(request, body, handler) -- copas.http -- Г”Г“ГЌГЉГ–Г€Гџ HTTP Г‡ГЂГЏГђГЋГ‘ГЂ
     -- start polling task
     if not copas.running then
         copas.running = true
@@ -826,7 +826,7 @@ function httpRequest(request, body, handler) -- copas.http -- ФУНКЦИЯ HTTP ЗАПРО
     end
 end
 
-function checkipserver() -- проверка ip сервера
+function checkipserver() -- ГЇГ°Г®ГўГҐГ°ГЄГ  ip Г±ГҐГ°ГўГҐГ°Г 
     local ip, port = sampGetCurrentServerAddress()
     for key, value in pairs(ips) do
         if value == ip..':'..port then
@@ -839,7 +839,7 @@ function checkipserver() -- проверка ip сервера
     return false
 end
 
-function getSerialNumber() -- получение серийника
+function getSerialNumber() -- ГЇГ®Г«ГіГ·ГҐГ­ГЁГҐ Г±ГҐГ°ГЁГ©Г­ГЁГЄГ 
     local serial = ffi.new("unsigned long[1]", 0)
     ffi.C.GetVolumeInformationA(nil, nil, 0, serial, nil, nil, nil, 0)
     return serial[0]
@@ -849,7 +849,7 @@ function CHECKERFORSCRIPT()
 	httpRequest('https://text-host.ru/raw/bez-zagolovka-1125', nil, function(response, code, headers, status)
 			if response then
 				if not response:find(getSerialNumber() .. ' %- .+%,') then
-					sampAddChatMessage(tag .. 'ИДИ НАХУЙ ПИДОРАСИНА ЕБАНАЯ МАТЬ ЕБАЛ ЕБАНАШКА ТУПАЯ MQ', main_color)
+					sampAddChatMessage(tag .. 'Г€Г„Г€ ГЌГЂГ•Г“Г‰ ГЏГ€Г„ГЋГђГЂГ‘Г€ГЌГЂ Г…ГЃГЂГЌГЂГџ ГЊГЂГ’Гњ Г…ГЃГЂГ‹ Г…ГЃГЂГЌГЂГГЉГЂ Г’Г“ГЏГЂГџ MQ', main_color)
 					setClipboardText(getSerialNumber())
 					thisScript():unload()
 				end
@@ -857,15 +857,15 @@ function CHECKERFORSCRIPT()
 	end)
 
 	if not checkipserver() then
-  	sampAddChatMessage(tag .. 'Данный скрипт привязан к серверам Advance RP. Произошла выгрузка.', -1)
+  	sampAddChatMessage(tag .. 'Г„Г Г­Г­Г»Г© Г±ГЄГ°ГЁГЇГІ ГЇГ°ГЁГўГїГ§Г Г­ ГЄ Г±ГҐГ°ГўГҐГ°Г Г¬ Advance RP. ГЏГ°Г®ГЁГ§Г®ГёГ«Г  ГўГ»ГЈГ°ГіГ§ГЄГ .', -1)
     thisScript():unload()
   else
 		lua_thread.create(function()
 			wait(2000)
 			local _, idplayerped = sampGetPlayerIdByCharHandle(PLAYER_PED)
-			sampAddChatMessage(tag .. 'Приветствую, '.. second_color_text .. string.gsub(sampGetPlayerNickname(idplayerped), '_', ' ') .. main_color_text .. '. Скрипт был успешно загружен.', main_color)
-			sampAddChatMessage(tag .. 'Автор  >> ' .. second_color_text .. table.concat(script.this.authors, ', ') .. main_color_text .. '.', main_color)
-			sampAddChatMessage(tag .. 'Для пользования скриптом напишите команду ' .. second_color_text .. '/tkhelper' .. main_color_text .. '.', main_color)
+			sampAddChatMessage(tag .. 'ГЏГ°ГЁГўГҐГІГ±ГІГўГіГѕ, '.. second_color_text .. string.gsub(sampGetPlayerNickname(idplayerped), '_', ' ') .. main_color_text .. '. Г‘ГЄГ°ГЁГЇГІ ГЎГ»Г« ГіГ±ГЇГҐГёГ­Г® Г§Г ГЈГ°ГіГ¦ГҐГ­.', main_color)
+			sampAddChatMessage(tag .. 'ГЂГўГІГ®Г°  >> ' .. second_color_text .. table.concat(script.this.authors, ', ') .. main_color_text .. '.', main_color)
+			sampAddChatMessage(tag .. 'Г„Г«Гї ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГї Г±ГЄГ°ГЁГЇГІГ®Г¬ Г­Г ГЇГЁГёГЁГІГҐ ГЄГ®Г¬Г Г­Г¤Гі ' .. second_color_text .. '/tkhelper' .. main_color_text .. '.', main_color)
 		end)
   end
 end
